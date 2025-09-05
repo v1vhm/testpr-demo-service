@@ -1,0 +1,26 @@
+- identifier: v1vhm/testpr-demo-service
+  title: testpr-demo-service
+  blueprint: githubRepository
+  properties:
+    readme: file://README.md
+    url: https://github.com/v1vhm/testpr-demo-service
+    defaultBranch: main
+    visibility: public
+    sshUrl: ssh://github.com/v1vhm/testpr-demo-service.git
+  relations:
+    githubTeams:
+      - cloud-platform-team
+- identifier: testpr-demo-service
+  title: demo service
+  blueprint: service
+  teams:
+  - cloud-platform-team
+  icon: Terraform
+  properties:
+    short_name: demo service
+  relations:
+    product: TESTPR
+    repository: v1vhm/testpr-demo-service
+    service_template: terraform_service
+    service_cost_centre: "123456"
+
